@@ -1,0 +1,10 @@
+.title {
+    text-align: center;
+    margin: 1rem auto 2rem auto;
+}
+.title h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right, #E53E3E, #D69E2E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
