@@ -27,11 +27,9 @@ const todosSlice = createSlice({
         deleteAllTodos: (state) => {
             todosAdapter.removeAll(state)
         },
-        updateTodo: (state,action) => {
-            const {newTodoContent} = action.payload
-            todosAdapter.updateOne(state,newTodoContent)
+        updateTodo: (state, action) => {
+            todosAdapter.updateOne(state, action.payload)
         }
-
     }
 })
 

@@ -11,21 +11,27 @@ export default function AddTodo() {
 
     const dispatch = useDispatch();
 
+    const canAdd = () => {
+        return text.trim() === ''
+    }
+
     const handleAddNewTodo = () => {
         dispatch(addTodo(text))
         setText('')
     }
 
-    const handleChangeText = e => setText(e.target.value)
-
-    const canAdd = () => {
-        return text.trim() === ''
+    const handleKeyDown = e => {
+        const addTodo = canAdd();
+        if (e.keyCode === 13 && !addTodo)
+            handleAddNewTodo()
     }
+
+    const handleChangeText = e => setText(e.target.value)
 
     return (
         <div className='addTodoWrapper'>
             <Stack direction={'row'} justifyContent={'center'} spacing={1} sx={{ width: '90%' }} >
-                <TextField size='small' value={text} onChange={handleChangeText} sx={{ width: '30%' }} id="outlined-basic" label="Enter your Task" variant="outlined" autoFocus />
+                <TextField size='small' value={text} onKeyDown={handleKeyDown} onChange={handleChangeText} sx={{ width: '30%' }} id="outlined-basic" label="Enter your Task" variant="outlined" autoFocus />
                 <Button variant="contained" disabled={canAdd()} color='info' size='small' sx={{ width: 150 }} onClick={handleAddNewTodo} >Add</Button>
             </Stack>
         </div>
