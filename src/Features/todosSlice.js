@@ -1,4 +1,5 @@
-import { createEntityAdapter, createSlice, nanoid } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSelector, createSlice, nanoid } from "@reduxjs/toolkit";
+import { statusFilter } from "./filterSlice";
 
 const todosAdapter = createEntityAdapter()
 
@@ -29,6 +30,12 @@ const todosSlice = createSlice({
         },
         updateTodo: (state, action) => {
             todosAdapter.updateOne(state, action.payload)
+        },
+        clearTodosCompleted: (state, action) => {
+            Object.values(state.entities).forEach(todo => {
+                if (todo.completed)
+                    todosAdapter.removeOne(state, todo.id)
+            })
         }
     }
 })
@@ -37,7 +44,31 @@ export const {
     addTodo,
     deleteTodo,
     deleteAllTodos,
-    updateTodo
+    updateTodo,
+    clearTodosCompleted
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
+
+
+const selectFiltredTodos = createSelector(
+    selectAllTodos,
+    state => state.filters,
+    (todos, filters) => {
+        const { status } = filters;
+
+        const showAll = status === statusFilter.All
+        if (showAll)
+            return todos
+
+        const showCompleted = status === statusFilter.Completed
+        return todos.filter(todo => {
+            return showAll || todo.completed === showCompleted
+        })
+    }
+)
+
+export const selectTodosFiltredIds = createSelector(
+    selectFiltredTodos,
+    (filtredTodos) => filtredTodos.map(todo => todo.id)
+)

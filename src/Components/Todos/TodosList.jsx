@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Todo from './Todo';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteAllTodos, selectTodoIds } from '../../Features/todosSlice';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { deleteAllTodos, selectTodosFiltredIds } from '../../Features/todosSlice';
 import addTasks from '../../assets';
 import './style.css';
 import Button from '@mui/material/Button';
@@ -21,7 +21,7 @@ export default function TodosList() {
     setOpen(false);
   };
 
-  const todoIds = useSelector(selectTodoIds)
+  const todoIds = useSelector(selectTodosFiltredIds, shallowEqual)
   const dispatch = useDispatch();
 
   const handleDeleteAllTodos = () => {
@@ -30,7 +30,7 @@ export default function TodosList() {
   }
 
   return (
-    <Grid component={'div'} container flexDirection={'column'} alignItems={'center'}>
+    <Grid component={'div'} container flexDirection={'column'} alignItems={'center'} className='todosListWrapper'>
       {
         todoIds.length > 0 ?
           <>
@@ -41,7 +41,7 @@ export default function TodosList() {
           </>
           :
           <Grid component={'div'} display={'flex'} justifyContent={'center'}>
-            <img src={addTasks} />
+            <img src={addTasks} alt={'add tasks'} />
           </Grid>
       }
       <Dialog

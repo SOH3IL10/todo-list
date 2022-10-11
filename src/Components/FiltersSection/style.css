@@ -1,0 +1,21 @@
+.filtersSectionWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.filtersSection {
+    position: fixed;
+    bottom: 0;
+    background-color: #e4f1ff;
+    align-items: center;
+    margin: 0 !important;
+    border-radius: 30px 30px 0 0;
+    width: 80% !important;
+    padding: 0.5rem 2rem;
+    text-align: center;
+}
+
+.filtersSectionDarkTheme {
+    background: #0A1929 !important;
+}

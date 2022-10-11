@@ -5,6 +5,7 @@ import Title from '../Title';
 import AddTodo from '../AddTodo/AddTodo';
 import Box from '@mui/material/Box';
 import TodosList from '../Todos';
+import FiltersSection from '../FiltersSection/FiltersSection';
 
 
 function Layout() {
@@ -14,6 +15,7 @@ function Layout() {
             <Title />
             <AddTodo />
             <TodosList />
+            <FiltersSection />
         </Box>
     )
 }
