@@ -13,6 +13,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import './style.css';
 
 export default function Todo({ id }) {
     const todo = useSelector(state => selectTodoById(state, id))
@@ -63,6 +64,7 @@ export default function Todo({ id }) {
                 <DialogTitle>Update your task</DialogTitle>
                 <DialogContent>
                     <TextField
+                        className='textField'
                         autoFocus
                         margin="dense"
                         id="updateTodo"

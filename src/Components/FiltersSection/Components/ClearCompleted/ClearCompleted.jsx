@@ -9,7 +9,7 @@ export default function ClearCompleted() {
   const handleClickClearCompleted = () => dispatch(clearTodosCompleted())
 
   return (
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={3} className='itemsLeft'>
       <Button onClick={handleClickClearCompleted} color="secondary" >Clear Completed</Button>
     </Grid>
   )

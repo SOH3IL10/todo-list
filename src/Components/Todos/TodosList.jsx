@@ -34,7 +34,7 @@ export default function TodosList() {
       {
         todoIds.length > 0 ?
           <>
-            <Grid component={'ul'} container flexDirection={'column'} alignItems={'center'} sx={{ m: '2rem auto', borderRadius: 2, width: '60%', border: '1px solid #ccc', p: '0 1rem' }} >
+            <Grid component={'ul'} className='todoList' container flexDirection={'column'} alignItems={'center'} sx={{ m: '2rem auto', borderRadius: 2, width: '60%', border: '1px solid #ccc', p: '0 1rem' }} >
               {todoIds.map(id => <Todo id={id} key={id} />)}
             </Grid>
             <Button variant="contained" color='error' size='small' sx={{ width: 150, m: '0 auto' }} onClick={handleClickOpen} >Delete All</Button>

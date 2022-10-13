@@ -11,3 +11,17 @@ img {
 .todosListWrapper {
     margin-bottom: 6rem;
 }
+
+@media screen and (max-width: 600px) {
+    .todoList {
+        width: 95% !important;
+    }
+
+    img {
+        width: 220px;
+    }
+
+    .textField {
+        min-width: 100% !important;
+    }
+}

@@ -30,7 +30,7 @@ export default function FilterTodos() {
     };
 
     return (
-        <Grid item xs={6} >
+        <Grid item xs={8} sm={6} >
             <ToggleButtonGroup
                 size='small'
                 value={filter}
