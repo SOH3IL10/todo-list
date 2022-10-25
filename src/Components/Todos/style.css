@@ -9,7 +9,8 @@ img {
 }
 
 .todosListWrapper {
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
+    padding: 6rem;
 }
 
 @media screen and (max-width: 600px) {

@@ -31,7 +31,7 @@ export default function AddTodo() {
     return (
         <div className='addTodoWrapper'>
             <Stack direction={'row'} justifyContent={'center'} spacing={1} sx={{ width: '90%' }} >
-                <TextField size='small' className='inputBox' value={text} onKeyDown={handleKeyDown} onChange={handleChangeText} sx={{ width: '30%' }} id="outlined-basic" label="Enter your Task" variant="outlined" autoFocus />
+                <TextField size='small' className='inputBox' value={text} onKeyDown={handleKeyDown} onChange={handleChangeText} autoComplete={'off'} sx={{ width: '30%' }} id="outlined-basic" label="Enter your Task" variant="outlined" autoFocus />
                 <Button variant="contained" disabled={canAdd()} color='info' size='small' sx={{ width: 150 }} onClick={handleAddNewTodo} >Add</Button>
             </Stack>
         </div>
